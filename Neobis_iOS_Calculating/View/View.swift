@@ -10,6 +10,8 @@ import UIKit
 
 class MainView : UIView {
     
+    var operationPressed: ((Double,Int) -> ())?
+    
     let button0 : UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 100)
@@ -303,14 +305,32 @@ class MainView : UIView {
     
     @objc func addTargets(_ sender: UIButton){
         let tag = sender.tag - 1
-        if tag < 10 {
+        switch tag{
+        case 0,1,2,3,4,5,6,7,8,9:
             if result.text == "0" {
                 result.text = "\(tag)"
             } else if let text = result.text {
                 result.text = "\(String(describing: text))\(tag)"
             }
-        } else {
+        case 10:
+            if result.text == "0"{
+                result.text = "0,"
+            } else if let text = result.text, !text.contains(",") {
+                result.text = "\(String(describing: text)),"
+            }
+        case 11:
+            if let text = result.text, let value = Double(text) {
+                operationPressed?(value,tag)
+            }
             
+        case 12,13,14,15:
+            if let text = result.text, let value = Double(text){
+                operationPressed?(value,tag)
+                result.text = "0"
+            }
+            
+        default:
+            break
         }
     }
     

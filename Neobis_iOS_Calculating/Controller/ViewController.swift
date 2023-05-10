@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     let mainView = MainView()
-    let calculator = CalculatorModel(operand1: 0, operand2: 0, currentOperation: .add)
+    var answer: Double = 0
+    var calculator = CalculatorModel(operand1: 0, operand2: 0, currentOperation: .add)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
@@ -19,8 +20,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calculate()
         addToView()
         constraints()
+    }
+    
+    func calculate() {
+        mainView.operationPressed = {(operand1, currentOperation) in
+            switch currentOperation{
+            case 11:
+                if self.answer == 0 {
+                    self.answer = Double(operand1)
+                    self.calculator.currentOperation = .add
+                }
+            default:
+                break
+            }
+        }
     }
     
     func addToView() {
