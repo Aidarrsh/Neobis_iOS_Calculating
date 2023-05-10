@@ -13,6 +13,8 @@
 		1C64FDEE2A0683DF004D49C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C64FDEC2A0683DF004D49C5 /* Main.storyboard */; };
 		1C64FDF02A0683E0004D49C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C64FDEF2A0683E0004D49C5 /* Assets.xcassets */; };
 		1C64FDF32A0683E0004D49C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C64FDF12A0683E0004D49C5 /* LaunchScreen.storyboard */; };
+		1C64FDFE2A06AE4C004D49C5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64FDFD2A06AE4C004D49C5 /* View.swift */; };
+		1C64FE002A07C53C004D49C5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64FDFF2A07C53C004D49C5 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		1C64FDEF2A0683E0004D49C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C64FDF22A0683E0004D49C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C64FDF42A0683E0004D49C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C64FDFD2A06AE4C004D49C5 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		1C64FDFF2A07C53C004D49C5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		1C64FDE52A0683DF004D49C5 /* Neobis_iOS_Calculating */ = {
 			isa = PBXGroup;
 			children = (
+				1C64FDFC2A06845B004D49C5 /* Controller */,
+				1C64FDFB2A068456004D49C5 /* View */,
+				1C64FDFA2A06844B004D49C5 /* Model */,
 				1C64FDE62A0683DF004D49C5 /* AppDelegate.swift */,
 				1C64FDE82A0683DF004D49C5 /* SceneDelegate.swift */,
-				1C64FDEA2A0683DF004D49C5 /* ViewController.swift */,
 				1C64FDEC2A0683DF004D49C5 /* Main.storyboard */,
 				1C64FDEF2A0683E0004D49C5 /* Assets.xcassets */,
 				1C64FDF12A0683E0004D49C5 /* LaunchScreen.storyboard */,
 				1C64FDF42A0683E0004D49C5 /* Info.plist */,
 			);
 			path = Neobis_iOS_Calculating;
+			sourceTree = "<group>";
+		};
+		1C64FDFA2A06844B004D49C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C64FDFF2A07C53C004D49C5 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C64FDFB2A068456004D49C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C64FDFD2A06AE4C004D49C5 /* View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C64FDFC2A06845B004D49C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1C64FDEA2A0683DF004D49C5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C64FE002A07C53C004D49C5 /* Model.swift in Sources */,
+				1C64FDFE2A06AE4C004D49C5 /* View.swift in Sources */,
 				1C64FDEB2A0683DF004D49C5 /* ViewController.swift in Sources */,
 				1C64FDE72A0683DF004D49C5 /* AppDelegate.swift in Sources */,
 				1C64FDE92A0683DF004D49C5 /* SceneDelegate.swift in Sources */,
