@@ -304,6 +304,7 @@ class MainView : UIView {
     }
     
     @objc func addTargets(_ sender: UIButton){
+        sender.animateButton()
         let tag = sender.tag - 1
         switch tag{
         case 0,1,2,3,4,5,6,7,8,9:
@@ -314,7 +315,7 @@ class MainView : UIView {
             }
         case 10:
             if result.text == "0"{
-                result.text = "0,"
+                result.text = "0."
             } else if let text = result.text, !text.contains(".") {
                 result.text = "\(String(describing: text))."
             }
@@ -328,9 +329,19 @@ class MainView : UIView {
                 operationPressed?(value,tag)
                 result.text = "0"
             }
-        case 16,17:
+        case 16:
             if let text = result.text, let value = Float(text) {
                 operationPressed?(value,tag)
+            }
+        case 17:
+            if let text = result.text, let value = Float(text) {
+                let negativeValue = -value
+                let intNegative = Int(negativeValue)
+                if negativeValue - Float(intNegative) == 0 {
+                    result.text = "\(intNegative)"
+                } else {
+                    result.text = String(negativeValue)
+                }
             }
         default:
             break
@@ -457,5 +468,15 @@ class MainView : UIView {
             stackView4.heightAnchor.constraint(equalToConstant: 80),
         ])
         
+    }
+}
+
+
+extension UIButton {
+    func animateButton() {
+        self.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 6, options: .allowUserInteraction, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
 }

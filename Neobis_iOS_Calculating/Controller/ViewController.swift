@@ -89,19 +89,6 @@ class ViewController: UIViewController {
                         self.mainView.result.text = stringAnswer
                     }
                 }
-            case 17:
-                if let text = self.mainView.result.text, let value = Float(text) {
-                    self.answer = -value
-                    let intAnswer = Int(self.answer)
-                    if self.answer - Float(intAnswer) == 0 {
-                        self.mainView.result.text = "\(intAnswer)"
-                    } else {
-                        let stringAnswer = String(self.answer)
-                        self.mainView.result.text = stringAnswer
-                    }
-                    // Update answer with the new negated value
-                    self.answer = Float(self.mainView.result.text ?? "0") ?? 0.0
-                }
             default:
                 break
             }
