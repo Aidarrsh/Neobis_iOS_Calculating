@@ -12,15 +12,12 @@ enum Operation {
 }
 
 struct CalculatorModel {
-    var operand1: Double = 0
-    var operand2: Double = 0
-    var currentOperation: Operation?
+    var operand1: Float
+    var operand2: Float
+    var currentOperation: Operation
     
-    func performOperation(_ operation: Operation) -> Double? {
-        if currentOperation != nil && operand2 == 0 {
-            return nil
-        }
-        switch operation {
+    func performOperation() -> Float {
+        switch currentOperation {
         case .add:
             return operand1 + operand2
         case .subtract:
@@ -31,6 +28,4 @@ struct CalculatorModel {
             return operand1 / operand2
         }
     }
-    
 }
-

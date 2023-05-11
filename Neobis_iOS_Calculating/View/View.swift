@@ -10,7 +10,7 @@ import UIKit
 
 class MainView : UIView {
     
-    var operationPressed: ((Double,Int) -> ())?
+    var operationPressed: ((Float,Int) -> ())?
     
     let button0 : UIButton = {
         let button = UIButton()
@@ -315,20 +315,23 @@ class MainView : UIView {
         case 10:
             if result.text == "0"{
                 result.text = "0,"
-            } else if let text = result.text, !text.contains(",") {
-                result.text = "\(String(describing: text)),"
+            } else if let text = result.text, !text.contains(".") {
+                result.text = "\(String(describing: text))."
             }
         case 11:
-            if let text = result.text, let value = Double(text) {
+            if let text = result.text, let value = Float(text) {
                 operationPressed?(value,tag)
             }
             
         case 12,13,14,15:
-            if let text = result.text, let value = Double(text){
+            if let text = result.text, let value = Float(text){
                 operationPressed?(value,tag)
                 result.text = "0"
             }
-            
+        case 16,17:
+            if let text = result.text, let value = Float(text) {
+                operationPressed?(value,tag)
+            }
         default:
             break
         }
